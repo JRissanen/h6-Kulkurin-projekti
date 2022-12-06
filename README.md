@@ -133,28 +133,75 @@ Sitten yritin määrittää Vagrant-virtuaalikoneen: </br>
 Mielestäni VirtualBox tukee sisäkkäistä virtualisointia, eli VirtualBoxilla tehdyn virtuaalikoneen tulisi myös pystyä asentamaan VirtualBox ja käyttämään sitä luomaan uusia virtuaalikoneita.
 
 Aloitin vianselvityksen. </br>
-Kokeilin ensin katsoa VirtualBoxin statuksen ja sen jälkeen sulkea ja uudelleenkäynnistää koko sovelluksen:
-
-![Screenshot 2022-12-06 170359](https://user-images.githubusercontent.com/116954333/205947884-bb519174-be3f-4636-9074-4b58c7cc2d59.png)
-
-"Active" kohdassa luki kuitenkin koko ajan "Active: active (exited)", joten tiesin, ettei sovellus pysy ylhäällä.
-
-Katsoin aiempaa virheilmoitusta uudestaan ja huomasin, että ongelma liittyi VirtualBox Manageriin, joten avasin sen GUI:ssa terminaalin viereen ja huomasin, että ainakin Vagrant oli onnistunut luomaan uuden virtuaalikoneen.
+Katsoin virheilmoitusta ja huomasin, että ongelma liittyi VirtualBox Manageriin, joten avasin sen GUI:ssa terminaalin viereen ja huomasin, että ainakin Vagrant oli onnistunut luomaan uuden virtuaalikoneen.
 
 ![Screenshot 2022-12-06 171516](https://user-images.githubusercontent.com/116954333/205950515-3b044053-5cc1-46cd-9b61-5e33b52d3b20.png)
 
 Tajusin, etten ollut muutenkaan muistanut luoda harjoitusta varten omaa kansiota, joten poistin Vagrant-virtuaalikoneen: </br>
 `vagrant destroy` </br>
-Poistin myös Vagrantfilen:
+Poistin myös Vagrantfilen: </br>
 `rm Vagrantfile` </br>
 Ja tein kotihakemistooni uuden hakemiston harjoituksille: </br>
 `mkdir Vagrant/test_vagrant`.
 
+Suljin virtuaalikoneeni ja aloitin etsimään netistä tietoa ongelmasta. </br>
 Googletin ongelmaa virheilmoituksenmukaan: "virtualbox vt-x is not available ubuntu". </br>
 Löysin keskutelupalstan: https://forums.virtualbox.org/viewtopic.php?f=7&t=101692 </br>
 Sieltä löysin vinkin: </br>
 "Kokeile laittaa VirtualBoxin isäntä koneen asetuksista: System > Processor > Enable Nested VT-x/AMD-V" päälle. </br>
 Päätin kokeilla laittaa asetuksen "Enable Nested VT-x/AMD-V" päälle ja katsoa, jos se auttaisi.
+
+![Screenshot 2022-12-06 175148](https://user-images.githubusercontent.com/116954333/205959219-c32a7c46-4559-4ad9-b7bf-1079e701c87b.png)
+
+Käynnistin virtuaalikoneeni uudestaan ja koitin aloittaa nyt koko prosessin alusta. </br>
+Alku näytti lupaavalta, koska uusi Vagrant-virtuaalikone lähti käyntiin: 
+
+![Screenshot 2022-12-06 180623](https://user-images.githubusercontent.com/116954333/205962847-043ea289-378e-4bfd-b857-c289b74fef40.png)
+
+Uuden Vagrant-virtuaalikoneen asennus oli kuitenkin niin hidasta, että isäntä virtuaalikone päätti katkaista yhteyden:
+
+![Screenshot 2022-12-06 181101](https://user-images.githubusercontent.com/116954333/205964156-52315f3a-53a4-4690-ac20-c2ac42eef9d4.png)
+
+Kokeilin virheilmoituksen perusteella muuttaa "timeout" ajan arvoa (poistin myös tiedostosta kaikki turhat kommentit):
+
+![Screenshot 2022-12-06 184107](https://user-images.githubusercontent.com/116954333/205971068-5cc753e6-0ec2-4d7f-829d-060d3f715922.png)
+
+Sitten annoin komennot `vagrant destroy` ja `vagrant up` kokeillakseni taas uudestaan.
+
+![Screenshot 2022-12-06 185517](https://user-images.githubusercontent.com/116954333/205974150-772d60be-12c7-4c18-b8a4-95248b5ab7f0.png)
+
+Kaiken tämän säädön jälkeen sain yhteyden muodostettua ja uuden Vagrant-virtuaalikoneen luotua, joten homma selvä. </br>
+En ole varma onko paras tapa kokeilla harjoituksia muutenkaan asentamalla virtuaalikonetta toisen virtuaalikoneen sisälle :D.
+
+__b) Yksityisverkko. Asenna kaksi virtuaalikonetta samaan verkkoon Vagrantilla. Laita toisen koneen nimeksi "isanta" ja toisen "renki1". Kokeile, että "renki1" saa yhteyden koneeseen "isanta" (esim. ping tai nc). Tehtävä tulee siis tehdä alusta, vaikka olisit ehtinyt kokeilla tätä tunnilla.__
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
