@@ -158,7 +158,7 @@ Alku näytti lupaavalta, koska uusi Vagrant-virtuaalikone lähti käyntiin:
 
 ![Screenshot 2022-12-06 180623](https://user-images.githubusercontent.com/116954333/205962847-043ea289-378e-4bfd-b857-c289b74fef40.png)
 
-Uuden Vagrant-virtuaalikoneen asennus oli kuitenkin niin hidasta, että isäntä virtuaalikone päätti katkaista yhteyden:
+Uuden Vagrant-virtuaalikoneen asennus oli kuitenkin niin hidasta, että asennus aikakatkaistiin:
 
 ![Screenshot 2022-12-06 181101](https://user-images.githubusercontent.com/116954333/205964156-52315f3a-53a4-4690-ac20-c2ac42eef9d4.png)
 
