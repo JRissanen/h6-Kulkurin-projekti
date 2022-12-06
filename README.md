@@ -44,7 +44,7 @@ Karvinen 2021: [Two Machine Virtual Network With Debian 11 Bullseye and Vagrant]
   * `$ mkdir twohost/; cd twohost/`
 * Tee ja tallenna hakemistoon "Vagrantfile", joka määrittää Vagrantin toiminnan:
   * `$ nano Vagrantfile`
-* Vagrantfile:n sisältö:
+* "Vagrantfile":n sisältö:
   * ```
     # -*- mode: ruby -*-
     # vi: set ft=ruby :
@@ -74,15 +74,38 @@ Karvinen 2021: [Two Machine Virtual Network With Debian 11 Bullseye and Vagrant]
 	    end
 	
     end
-  ```
+    ```
 
-* 
+* SSH:lla pääset kirjautumaan uuden virtuaalikoneen käyttäjälle:
+  * `$ vagrant ssh t001`
+* Ja pääset takaisin omaan käyttöjärjestelmääsi "exit" komennolla:
+  * `vagrant@t001$ exit`
 
+* Voit testata molempien koneiden ytheyttä Internettiin ja toisiinsa:
+  * ```
+     $ vagrant ssh t001
+     vagrant@t001$ ping -c 1 192.168.88.102
+     vagrant@t001$ ping -c 1 8.8.8.8 # Google nameserver
+     vagrant@t001$ exit
 
+     $ vagrant ssh t002
+     vagrant@t002$ ping -c 1 192.168.88.101
+     vagrant@t002$ exit
+    ```
 
+* Jos haluat tuhota molemmat virtuaalikoneet ja niiden kaikki tiedostot:
+  * `$ vagrant destroy # all files on both virtual machines are destroyed`
 
+* Uudet ja tyhjät virtuaalikoneet saat taas käyntiin:
+  * `vagrant up`
 
-
+* Joskus jotkin käyttöjärjestelmät antavat "IP numbers not allowed" virheilmoituksen.
+* Kannattaa kokeilla vaihtaa "Vagrantfile":stä IP-osoitteen osoiteavaruus välille 56-63:
+  * ```
+     t001.vm.network "private_network", ip: "192.168.60.101"
+     # ...
+     t002.vm.network "private_network", ip: "192.168.60.102"
+    ```
 
 
 
