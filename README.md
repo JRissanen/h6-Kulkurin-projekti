@@ -10,15 +10,15 @@ Karvinen 2017: [Vagrant Revisited – Install & Boot New Virtual Machine in 31 s
 * Koneita hallitaan SSH-yhteyden avulla.
 * Ensin pitää asentaa Vagrant ja VirtualBox:
   * ```
-    $ sudo apt-get update
-    $ sudo apt-get -y install vagrant virtualbox
+     $ sudo apt-get update
+     $ sudo apt-get -y install vagrant virtualbox
     ```
 * Vagrant-virtuaalikoneet hyödyntävät VirtualBoxin virtuaaliympäristöä, siksi myös VirtualBox pitää asentaa.
 * Uuden Vagrant-virtuaali koneen luominen:
    * ```
-    $ vagrant init bento/ubuntu-16.04
-    $ vagrant up
-    $ vagrant ssh
+     $ vagrant init bento/ubuntu-16.04
+     $ vagrant up
+     $ vagrant ssh
     ```
 * Jos haluat tuhota Vagrant-virtuaalikoneen ja sen kaikki tiedostot:
   * `$ vagrant destroy`
