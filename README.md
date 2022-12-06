@@ -107,12 +107,18 @@ Karvinen 2021: [Two Machine Virtual Network With Debian 11 Bullseye and Vagrant]
      t002.vm.network "private_network", ip: "192.168.60.102"
     ```
 
+Karvinen 2018: Salt Quickstart – [Salt Stack Master and Slave on Ubuntu Linux](https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/)
 
+Tiivistelmän tästä artikkelista voit lukea toisesta repositorystani, ensimmäisen alaotsikon alta: </br>
+https://github.com/JRissanen/h2-Package-File-Service
 
+#Tehtävät
 
+Kaikki tehtävät on tehty Linux Ubuntu 22.04.1 LTS virtuaalikoneella, VirtualBoxin Versiolla 6.1.40.
 
+__a) Hello Vagrant. Asenna virtuaalikone Vagrantilla.__
 
-
+Asensin Vagrantin sekä VirtualBoxin ja testasin niiden toimivuuden.
 
 
 
@@ -128,9 +134,9 @@ Karvinen 2021: [Two Machine Virtual Network With Debian 11 Bullseye and Vagrant]
 
 Lähteet
 
-https://terokarvinen.com/2017/04/11/vagrant-revisited-install-boot-new-virtual-machine-in-31-seconds/
-https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/
-https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/
+https://terokarvinen.com/2017/04/11/vagrant-revisited-install-boot-new-virtual-machine-in-31-seconds/ </br>
+https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/ </br>
+https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/ </br>
 
 
 
