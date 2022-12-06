@@ -138,9 +138,9 @@ Katsoin virheilmoitusta ja huomasin, että ongelma liittyi VirtualBox Manageriin
 ![Screenshot 2022-12-06 171516](https://user-images.githubusercontent.com/116954333/205950515-3b044053-5cc1-46cd-9b61-5e33b52d3b20.png)
 
 Tajusin, etten ollut muutenkaan muistanut luoda harjoitusta varten omaa kansiota, joten poistin Vagrant-virtuaalikoneen: </br>
-`vagrant destroy` </br>
+`vagrant destroy`. </br>
 Poistin myös Vagrantfilen: </br>
-`rm Vagrantfile` </br>
+`rm Vagrantfile`. </br>
 Ja tein kotihakemistooni uuden hakemiston harjoituksille: </br>
 `mkdir Vagrant/test_vagrant`.
 
@@ -162,7 +162,11 @@ Uuden Vagrant-virtuaalikoneen asennus oli kuitenkin niin hidasta, että isäntä
 
 ![Screenshot 2022-12-06 181101](https://user-images.githubusercontent.com/116954333/205964156-52315f3a-53a4-4690-ac20-c2ac42eef9d4.png)
 
-Kokeilin virheilmoituksen perusteella muuttaa "timeout" ajan arvoa (poistin myös tiedostosta kaikki turhat kommentit):
+Kokeilin virheilmoituksen perusteella muuttaa "timeout" ajan arvoa. </br>
+Avasin tiedoston: `micro Vagrantfile`. </br>
+Poistin tiedostosta kaikki turhat kommentit. </br>
+Lisäsin rivin: `config.vm.boot_timeout = 1000`. </br>
+Ajattelin, että tuhat sekuntia olisi riittävän pitkä aika, jotta uusi virtuaalikone ehtisi lähteä käyntiin, ennen kuin yhteys katkaistaan.
 
 ![Screenshot 2022-12-06 184107](https://user-images.githubusercontent.com/116954333/205971068-5cc753e6-0ec2-4d7f-829d-060d3f715922.png)
 
@@ -171,7 +175,6 @@ Sitten annoin komennot `vagrant destroy` ja `vagrant up` kokeillakseni taas uude
 ![Screenshot 2022-12-06 185517](https://user-images.githubusercontent.com/116954333/205974150-772d60be-12c7-4c18-b8a4-95248b5ab7f0.png)
 
 Kaiken tämän säädön jälkeen sain yhteyden muodostettua ja uuden Vagrant-virtuaalikoneen luotua, joten homma selvä. </br>
-En ole varma onko paras tapa kokeilla harjoituksia muutenkaan asentamalla virtuaalikonetta toisen virtuaalikoneen sisälle :D.
 
 __b) Yksityisverkko. Asenna kaksi virtuaalikonetta samaan verkkoon Vagrantilla. Laita toisen koneen nimeksi "isanta" ja toisen "renki1". Kokeile, että "renki1" saa yhteyden koneeseen "isanta" (esim. ping tai nc). Tehtävä tulee siis tehdä alusta, vaikka olisit ehtinyt kokeilla tätä tunnilla.__
 
