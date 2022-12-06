@@ -30,9 +30,9 @@ Karvinen 2021: [Two Machine Virtual Network With Debian 11 Bullseye and Vagrant]
 
 * Vagrantin käyttöohje.
 * Vagrant:
- * Automaattisesti asentaa uuden virtuaalikoneen.
- * Automatisoi SSH sisäänkirjautumisen.
- * Graafista käyttöliittymää ei tarvita.
+  * Automaattisesti asentaa uuden virtuaalikoneen.
+  * Automatisoi SSH sisäänkirjautumisen.
+  * Graafista käyttöliittymää ei tarvita.
 * Vagrantin ja VirtualBoxin asennus: (Vagrant vaatii toimiakseen VirtualBoxin.)
   * ```
      $ sudo apt-get update
@@ -41,39 +41,39 @@ Karvinen 2021: [Two Machine Virtual Network With Debian 11 Bullseye and Vagrant]
     
 * Kuinka luoda kaksi Vagrant-virtuaalikonetta:
 * Tee ensin uuttaprojektia varten uusi hakemisto.
- * `$ mkdir twohost/; cd twohost/`
+  * `$ mkdir twohost/; cd twohost/`
 * Tee ja tallenna hakemistoon "Vagrantfile", joka määrittää Vagrantin toiminnan:
- * `$ nano Vagrantfile`
+  * `$ nano Vagrantfile`
 * Vagrantfile:n sisältö:
-* ```
-  # -*- mode: ruby -*-
-  # vi: set ft=ruby :
-  # Copyright 2019-2021 Tero Karvinen http://TeroKarvinen.com
+  * ```
+    # -*- mode: ruby -*-
+    # vi: set ft=ruby :
+    # Copyright 2019-2021 Tero Karvinen http://TeroKarvinen.com
 
-  $tscript = <<TSCRIPT
-  set -o verbose
-  apt-get update
-  apt-get -y install tree
-  echo "Done - set up test environment - https://terokarvinen.com/search/?q=vagrant"
-  TSCRIPT
+    $tscript = <<TSCRIPT
+    set -o verbose
+    apt-get update
+    apt-get -y install tree
+    echo "Done - set up test environment - https://terokarvinen.com/search/?q=vagrant"
+    TSCRIPT
 
-  Vagrant.configure("2") do |config|
-	  config.vm.synced_folder ".", "/vagrant", disabled: true
-	  config.vm.synced_folder "shared/", "/home/vagrant/shared", create: true
-	  config.vm.provision "shell", inline: $tscript
-	  config.vm.box = "debian/bullseye64"
+    Vagrant.configure("2") do |config|
+  	    config.vm.synced_folder ".", "/vagrant", disabled: true
+	    config.vm.synced_folder "shared/", "/home/vagrant/shared", create: true
+	    config.vm.provision "shell", inline: $tscript
+	    config.vm.box = "debian/bullseye64"
 
-	  config.vm.define "t001" do |t001|
-		  t001.vm.hostname = "t001"
-		  t001.vm.network "private_network", ip: "192.168.88.101"
-	  end
+	    config.vm.define "t001" do |t001|
+		    t001.vm.hostname = "t001"
+		    t001.vm.network "private_network", ip: "192.168.88.101"
+	    end
 
-	  config.vm.define "t002", primary: true do |t002|
-		  t002.vm.hostname = "t002"
-		  t002.vm.network "private_network", ip: "192.168.88.102"
-	  end
+	    config.vm.define "t002", primary: true do |t002|
+		    t002.vm.hostname = "t002"
+		    t002.vm.network "private_network", ip: "192.168.88.102"
+	    end
 	
-  end
+    end
   ```
 
 * 
