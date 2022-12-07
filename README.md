@@ -227,7 +227,7 @@ Näytti toimivan joten homma selvä.
 
 
 
-Lähteet
+__Lähteet__
 
 https://terokarvinen.com/2017/04/11/vagrant-revisited-install-boot-new-virtual-machine-in-31-seconds/ </br>
 https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/ </br>
