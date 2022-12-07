@@ -1,0 +1,5 @@
+Kokeilin ensin katsoa VirtualBoxin statuksen ja sen jälkeen sulkea ja uudelleenkäynnistää koko sovelluksen:
+
+![Screenshot 2022-12-06 170359](https://user-images.githubusercontent.com/116954333/205947884-bb519174-be3f-4636-9074-4b58c7cc2d59.png)
+
+"Active" kohdassa luki kuitenkin koko ajan "Active: active (exited)", joten tiesin, ettei sovellus pysy ylhäällä.
