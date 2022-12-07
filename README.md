@@ -114,8 +114,6 @@ https://github.com/JRissanen/h2-Package-File-Service
 
 #Tehtävät
 
-Kaikki tehtävät on tehty Linux Ubuntu 22.04.1 LTS virtuaalikoneella, VirtualBoxin Versiolla 6.1.40.
-
 __a) Hello Vagrant. Asenna virtuaalikone Vagrantilla.__
 
 Aloitin näin: </br>
@@ -178,17 +176,34 @@ Kaiken tämän säädön jälkeen sain yhteyden muodostettua ja uuden Vagrant-vi
 
 __b) Yksityisverkko. Asenna kaksi virtuaalikonetta samaan verkkoon Vagrantilla. Laita toisen koneen nimeksi "isanta" ja toisen "renki1". Kokeile, että "renki1" saa yhteyden koneeseen "isanta" (esim. ping tai nc). Tehtävä tulee siis tehdä alusta, vaikka olisit ehtinyt kokeilla tätä tunnilla.__
 
+Ajattelin, että on helpompi (tai ainakin nopeampi) tehdä tehtävät omalla koneellani, kuin virtuaalikoneella, joten loput tehtävistä on tehty Windows PowerShellissä.
 
+Käytin mallipohjana Tero Karvisen artikkelista otettua esimerkkiä: [Two Machine Virtual Network With Debian 11 Bullseye and Vagrant](https://terokarvinen.com/2022/palvelinten-hallinta-2022p2/?from=MoodleNews#h1-hello-salt)
 
+Aloitin muokkaamalla Vagrantfilen harjoitukseen sopivaksi: </br>
 
+![Screenshot 2022-12-07 141957](https://user-images.githubusercontent.com/116954333/206177891-bff15ba4-3710-4820-99a7-b34e356b3536.png)
 
+Ajoin komennon: `vagrant up`. </br>
+Asennus sujui ilman ongelmia ja isanta sekä renki1 Vagrant-virtuaalikoneet saatiin luotua. 
 
+![Screenshot 2022-12-07 142454](https://user-images.githubusercontent.com/116954333/206178769-41f5c7c0-6642-44a4-9f47-6c26c56980f5.png)
 
+Sitten testasin, että renk1 saa isanta-koneeseen yhteyden: </br>
+Otin yhteyden renki1-koneeseen komennolla: `vagrant ssh renki1`. </br>
+Pingasin isanta-koneelle Vagrantfile:ssä määritettyä osoitetta: </br>
+`ping 192.168.60.101`, yhtään pakettia ei menetetty, joten homma selvä.
 
+![Screenshot 2022-12-07 143303](https://user-images.githubusercontent.com/116954333/206180340-f367054b-e93e-4feb-b92d-9d9f7d057863.png)
 
+__c) Salt master-slave. Toteuta Salt master-slave -arkkitehtuuri verkon yli. Aseta edellisen kohdan kone renki1 orjaksi koneelle isanta.__
 
-
-
+Aloitin ottamalla yhteyden isanta-koneeseen ja tekemällä siitä master-koneen: </br>
+`vagrant ssh isanta`. </br>
+```
+  vagrant@isanta:~$ sudo apt-get update
+  vagrant@isanta:~$ sudo apt-get -y install salt-master
+```
 
 
 
