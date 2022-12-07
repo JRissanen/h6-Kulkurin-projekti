@@ -201,31 +201,28 @@ __c) Salt master-slave. Toteuta Salt master-slave -arkkitehtuuri verkon yli. Ase
 Aloitin ottamalla yhteyden isanta-koneeseen ja tekemällä siitä master-koneen: </br>
 `vagrant ssh isanta`. </br>
 ```
-  vagrant@isanta:~$ sudo apt-get update
-  vagrant@isanta:~$ sudo apt-get -y install salt-master
+vagrant@isanta:~$ sudo apt-get update
+vagrant@isanta:~$ sudo apt-get -y install salt-master
 ```
 
+Avasin toisen PowerShell ikkunan ja otin siellä yhteyden renki1-koneeseen ja tein siitä minion-koneen: </br>
+`vagrant ssh renki1`. </br>
+```
+vagrant@renki1:~$ sudo apt-get update
+vagrant@renki1:~$ sudo apt-get -y install salt-minion
+```
 
+Sitten menin renki1-koneella salt hakemistoon antamaan renki1 koneelle master-koneen ip-osoitteen: </br>
 
+![Screenshot 2022-12-07 151206](https://user-images.githubusercontent.com/116954333/206188155-d7bfd7cc-e11b-4ec2-84dc-f4953c402da0.png)
 
+Sitten uudelleen käynnistin renki1 minionin ja tarkistin statuksen.
 
+Sitten siirryin isanta master-koneelle ja kävin hyväksymässä uuden avaimen ja testasin master-minion toimivuuden:
 
+![Screenshot 2022-12-07 152255](https://user-images.githubusercontent.com/116954333/206190649-29c1df2a-792d-4581-9d4b-e100af0c5065.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Näytti toimivan joten homma selvä.
 
 
 
