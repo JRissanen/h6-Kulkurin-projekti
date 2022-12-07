@@ -224,8 +224,10 @@ Sitten siirryin isanta master-koneelle ja kävin hyväksymässä uuden avaimen j
 
 Näytti toimivan joten homma selvä.
 
+__d) Oma suola. Tee ensimmäinen työversio projektistasi. Miniprojektilla tulee olla jokin tarkoitus, vaikka se olisi keksitty. Projektilla tulee olla sivu (esim. Github, Gitlab...), josta selviää projektin perustiedot. Toiminnallisuutta tulee olla kokeiltu, mutta sen ei tarvitse olla valmis. Valmiit projektit esitellään viimeisellä tapaamiskerralla. Tässä tehtävässä palautettava työversio ei siis ole vielä lopullinen.__
 
-
+Oma mini projekti on vielä vaiheessa, mutta laitan tähän linkin sen repositoryyn. </br>
+Linkki: https://github.com/JRissanen/My-Own-Mini-Salt-Project/blob/main/README.md
 
 __Lähteet__
 
